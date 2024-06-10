@@ -5,12 +5,12 @@ import lombok.Data;
 @Data
 public class FieldMessage {
 
-	private String fildName;
+	private String fieldName;
 	private String message;
 	
-	public FieldMessage(String fildName, String message) {
+	public FieldMessage(String fieldName, String message) {
 		super();
-		this.fildName = fildName;
+		this.fieldName = fieldName;
 		this.message = message;
 	}
 	
