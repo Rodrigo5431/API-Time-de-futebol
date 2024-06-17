@@ -15,6 +15,7 @@ public class Treinador {
 	private Integer idTreinador;
 	private String nome;
 	private String Experiencia;
+	
 	public String getNome() {
 		return nome;
 	}

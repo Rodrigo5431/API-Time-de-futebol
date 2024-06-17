@@ -61,6 +61,7 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		Jogador jogadorAlterado = jogadorService.updateJogador(3, jogador4);
 		System.out.println(jogadorAlterado.getNumeroCamisa());
 
+		//Treinador
 		Treinador treinador1 = new Treinador();
 		treinador1.setNome("Frederico");
 		treinador1.setExperiencia("Master");
@@ -71,21 +72,31 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		treinador2.setExperiencia("Sem experiencia");
 		treinadorService.salvar(treinador2);
 
+		Treinador treinador4 = new Treinador();
+		treinador4.setNome("Lucas");
+		treinador4.setExperiencia("Pleno");
+		treinadorService.salvar(treinador4);
+
+		//Buscar todos Treinadores
 		List<Treinador> listaTreinadores = treinadorService.buscarTodosTreinadores();
 		listaTreinadores.forEach(treinador -> System.out.println(treinador.getNome()));
 
+		//Buscar por id
 		Treinador treinador = treinadorService.buscarTreinadorPorId(1);
 		System.out.println(treinador.getNome());
 
+		//delete
 		flag = treinadorService.deletarTreinador(2);
 		System.out.println(flag);
 
+		//update
 		Treinador treinador3 = new Treinador();
 		treinador3.setNome("Frederico");
 		treinador3.setExperiencia("Aprendiz");
 		Treinador treinadorAlterado = treinadorService.updateTreinador(1, treinador2);
 		System.out.println(treinadorAlterado.getExperiencia());
 		
+		//time
 		Time time1 = new Time();
 		time1.setNomeTime("Touros Raivosos");
 		time1.setJogadores("12");
@@ -96,15 +107,24 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
 		time2.setJogadores("12");
 		timeService.salvar(time2);
 
+		Time time4 = new Time();
+		time4.setNomeTime("Caramujos Furiosos");
+		time4.setJogadores("23");
+		timeService.salvar(time4);
+
+		//buscar todos
 		List<Time> listaTimes = timeService.buscarTodosTimes();
 		listaTimes.forEach(time -> System.out.println(time.getNomeTime()));
 
+		//buscar por id
 		Time time = timeService.buscarTimePorId(1);
 		System.out.println(time.getNomeTime());
 
+		//delete
 		flag = timeService.deletarTime(2);
 		System.out.println(flag);
 
+		//update
 		Time time3 = new Time();
 		time3.setNomeTime("Farofeiros");
 		time3.setJogadores("11");

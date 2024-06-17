@@ -41,7 +41,6 @@ public class TimeResource {
 	@GetMapping
 	public ResponseEntity<List<TimeDTO>> buscarTodasTimes() {
 		List<Time> listaTimes = timeService.buscarTodosTimes();
-		// adicionar o modelmapper manualmente no pom.xml (pesquisar modelmapper maven)
 		List<TimeDTO> listaTimeDTO = listaTimes.stream()
 				.map(time -> mapper.map(time, TimeDTO.class)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listaTimeDTO);
@@ -61,7 +60,7 @@ public class TimeResource {
 			@io.swagger.v3.oas.annotations.parameters.RequestBody
 			(content = @Content
 			(examples = {
-		    @ExampleObject(name = "Exemplo de Time", value = ExampleValuesTime.exemploTime)
+		@ExampleObject(name = "Exemplo de Time", value = ExampleValuesTime.exemploTime)
 			}))
 			@RequestBody TimeDTO timeDTO) {
 		Time time = mapper.map(timeDTO, Time.class);
@@ -70,8 +69,6 @@ public class TimeResource {
 		return ResponseEntity.ok().body(novoTime);
 	}
 
-	// PUT - atualiza todo o registro
-	// Patch - atualiza somente um campo
 	@PutMapping("/{id}")
 	public ResponseEntity<TimeDTO> atualizarTime(@PathVariable Integer id,
 			@RequestBody TimeDTO timeDTO) {

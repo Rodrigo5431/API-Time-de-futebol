@@ -15,6 +15,7 @@ public class Time {
 	private Integer idTime;
 	private String nomeTime;
 	private String Jogadores;
+	
 	public String getNomeTime() {
 		return nomeTime;
 	}

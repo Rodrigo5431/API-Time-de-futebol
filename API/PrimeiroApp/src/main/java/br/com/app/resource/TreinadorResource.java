@@ -41,7 +41,6 @@ public class TreinadorResource {
 	@GetMapping
 	public ResponseEntity<List<TreinadorDTO>> buscarTodosTreinadores() {
 		List<Treinador> listaTreinadores = treinadorService.buscarTodosTreinadores();
-		// adicionar o modelmapper manualmente no pom.xml (pesquisar modelmapper maven)
 		List<TreinadorDTO> listaTreinadorDTO = listaTreinadores.stream()
 				.map(treinador -> mapper.map(treinador, TreinadorDTO.class)).collect(Collectors.toList());
 		return ResponseEntity.ok().body(listaTreinadorDTO);
@@ -61,7 +60,7 @@ public class TreinadorResource {
 			@io.swagger.v3.oas.annotations.parameters.RequestBody
 			(content = @Content
 			(examples = {
-		    @ExampleObject(name = "Exemplo de Treinador", value = ExampleValuesTreinador.exemploTreinador)
+		@ExampleObject(name = "Exemplo de Treinador", value = ExampleValuesTreinador.exemploTreinador)
 			}))
 			@RequestBody TreinadorDTO treinadorDTO) {
 		Treinador treinador = mapper.map(treinadorDTO, Treinador.class);
@@ -70,8 +69,7 @@ public class TreinadorResource {
 		return ResponseEntity.ok().body(novoTreinador);
 	}
 
-	// PUT - atualiza todo o registro
-	// Patch - atualiza somente um campo
+
 	@PutMapping("/{id}")
 	public ResponseEntity<TreinadorDTO> atualizarTreinador(@PathVariable Integer id,
 			@RequestBody TreinadorDTO treinadorDTO) {

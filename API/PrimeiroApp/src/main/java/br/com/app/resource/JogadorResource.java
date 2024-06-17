@@ -96,7 +96,6 @@ public class JogadorResource {
 	}
 	
 	
-	//localhost:8080/estudantes/paginacao?pagina=0&itensPorPagina=2&ordenacao=nome&tipoOrdenacao=ASC
 	@GetMapping("paginacao")
 	public Page<Jogador> buscarJogadorPorPaginacao
 	(@RequestParam @Schema(example = ExampleValuesJogador.PAGINA) Integer pagina,

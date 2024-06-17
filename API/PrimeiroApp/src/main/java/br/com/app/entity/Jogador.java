@@ -15,6 +15,7 @@ public class Jogador {
 	private Integer id;
 	private String nome;
 	private String numeroCamisa;
+	
 	public String getNome() {
 		return nome;
 	}
